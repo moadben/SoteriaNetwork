@@ -119,7 +119,7 @@ export default class Message extends Component {
       var x = new KeyPair();
       console.log(params.contactAddress.serEncPub);
       var EncPub = x.UnserializeEncPublicKey(params.contactAddress.serEncPub);
-      var SignSec = x.UnserializeSignSecretKey(params.serEncSec);
+      var SignSec = x.UnserializeSignSecretKey(params.serSignSec);
       console.log(EncPub);
       console.log(SignSec);
       var signedMsg = x.SendMsg(message, EncPub, SignSec)

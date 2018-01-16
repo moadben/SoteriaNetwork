@@ -26,7 +26,8 @@ function EncryptMsg(msg, pub){
 
 // Decrypt and return message using senders sec key
 KeyPair.prototype.DecryptMsg = function(encMsg, sec){
-    var msg = sjcl.decrypt(sec,encMsg)
+    var base64msg = sjcl.decrypt(sec,encMsg)
+    var msg = sjcl.codec.base64.toBits(base64msg)
 
     return msg;
 }
@@ -46,7 +47,8 @@ KeyPair.prototype.VerifyMsg = function(msg, SignPub){
 // Send a message to a receivers pub key
 KeyPair.prototype.SendMsg = function(msg, EncPub, SignSec){
     sigMsg = SignMsg(msg, SignSec);
-    encMsg = EncryptMsg(sigMsg, EncPub)
+    base64msg = sjcl.codec.base64.fromBits(msg);
+    encMsg = EncryptMsg(base64msg, EncPub);
 
     return encMsg;
 }

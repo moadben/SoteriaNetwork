@@ -11,7 +11,7 @@ import QRCodeScannerScreen from './QRCodeScan';
 import Home from './HomeScreen';
 import Message from './MessageScreen';
 
-export const server_address = 'http://10.110.26.134:5001';
+export const server_address = 'http://127.0.0.1:5000';
 // import {createStore, applyMiddleware} from 'redux';
 // import { Provider, connect } from 'react-redux'
 
@@ -35,8 +35,8 @@ const AppNav = StackNavigator({
   AddContact: { screen: AddContact },
   QRCodeScanner: { screen: QRCodeScannerScreen },
   Message: { screen: Message },
-  FaceDetection: { screen: FaceDetection },
-  PersonGroup: { screen: PersonGroup }
+  // FaceDetection: { screen: FaceDetection },
+  // PersonGroup: { screen: PersonGroup }
 });
 
 export default class App extends React.Component {
